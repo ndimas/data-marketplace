@@ -1,17 +1,36 @@
 package com.example.resource
 
+// Models and Services
 import com.example.model.DataProduct
 import com.example.repository.DataProductRepository
 import com.example.service.AuthenticationService
+
+// Jakarta EE
 import jakarta.inject.Inject
 import jakarta.ws.rs.*
-import jakarta.ws.rs.core.Context
-import jakarta.ws.rs.core.HttpHeaders
-import jakarta.ws.rs.core.MediaType
-import jakarta.ws.rs.core.Response
-import jakarta.ws.rs.core.SecurityContext
+import jakarta.ws.rs.core.*
+
+// OpenAPI
+import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition
+import org.eclipse.microprofile.openapi.annotations.info.Info
+import org.eclipse.microprofile.openapi.annotations.info.Contact
+import org.eclipse.microprofile.openapi.annotations.tags.Tag
+
+// Java utils
 import java.util.UUID
 
+@OpenAPIDefinition(
+    info = Info(
+        title = "Data Product API",
+        version = "0.1.0",
+        contact = Contact(
+            name = "Your Name",
+            url = "http://example.com/contact",
+            email = "your-email@example.com"
+        )
+    ),
+    tags = [Tag(name = "data-product", description = "Data Product operations")]
+)
 @Path("/products")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

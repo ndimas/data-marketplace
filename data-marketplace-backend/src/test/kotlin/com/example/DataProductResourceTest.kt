@@ -11,7 +11,7 @@ class DataProductResourceTest {
     fun testHelloEndpoint() {
         given()
             .contentType(MediaType.APPLICATION_JSON)
-            .`when`().get("/data-product")
+            .`when`().get("/products")
             .then()
             .statusCode(200)
             .body(`is`("Hello, World!")) // Adjust the expected response body as needed

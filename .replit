@@ -1,8 +1,8 @@
-run = "kotlinc -d main.jar main.kt && kotlin -classpath main.jar MainKt"
+run = "cd data-marketplace-backend && gradle quarkusDev"
 
-entrypoint = "main.kt"
+entrypoint = "data-marketplace-backend/src/main/kotlin/com/example/Application.kt"
 
-hidden=["*.jar"]
+hidden=["*.jar", "build", ".gradle", ".idea", "*.iml", "*.ipr", "*.iws"]
 
 [nix]
 channel = "stable-24_05"
@@ -21,7 +21,9 @@ start = ["kotlin-language-server"]
 
 [deployment]
 deploymentTarget = "cloudrun"
+run = ["sh", "-c", "gradle run"]
 
 [[ports]]
 localPort = 8080
 externalPort = 80
+exposeLocalhost = true
