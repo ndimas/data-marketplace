@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "install",
+			"command": "gradle",
+			"args": [
+				"install"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/data-marketplace-backend"
+			},
+			"presentation": {
+				"reveal": "silent"
+			}
+		}
+	]
+}
